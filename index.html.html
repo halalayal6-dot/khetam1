@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة خِتَام - الأثر الطيب والأمان الرقمي</title>
+    <!-- أيقونة التبويب - حرف (خ) ذهبي مزخرف -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a0c0e%22 stroke=%22%23d4af37%22 stroke-width=%224%22/><text y=%2262%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2255%22 font-family=%22'Amiri', 'Traditional Arabic', serif%22 font-weight=%22bold%22 fill=%22%23d4af37%22>خ</text></svg>">
+    <!-- الخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+<style>:root {
+    --bg-dark: #0a0c0e;
+    --card-bg: #14181c;
+    --gold-primary: #d4af37;
+    --gold-hover: #f3e5ab;
+    --emerald: #0b6623;
+    --emerald-light: #10b981;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+    --border-color: #262c36;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+h1, h2, h3, .logo-text h1 {
+    font-family: 'Amiri', serif;
+}
+
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #080a0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.splash-content {
+    text-align: center;
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.splash-icon {
+    font-size: 3.5rem;
+    color: var(--gold-primary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.splash-content h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--gold-primary);
+}
+
+.splash-content p {
+    margin: 5px 0 25px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.splash-loader {
+    width: 180px;
+    height: 4px;
+    background: #1a1f26;
+    border-radius: 4px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.splash-loader-bar {
+    width: 40%;
+    height: 100%;
+    background: var(--gold-primary);
+    border-radius: 4px;
+    position: absolute;
+    animation: loadingMove 1.2s infinite ease-in-out;
+}
+
+@keyframes loadingMove {
+    0% { left: -40%; }
+    50% { left: 60%; }
+    100% { left: 100%; }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Nav */
+.navbar {
+    background: #0f1216;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--gold-primary);
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--gold-primary);
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.badge-success { background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid var(--emerald-light); }
+.badge-gold { background: rgba(212, 175, 55, 0.2); color: var(--gold-primary); border: 1px solid var(--gold-primary); }
+
+/* Hero Card */
+.hero-card {
+    background: linear-gradient(135deg, #1a1f26 0%, #0d1117 100%);
+    border: 1px solid var(--gold-primary);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.hero-card h2 {
+    color: var(--gold-primary);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.card-header .icon {
+    font-size: 1.8rem;
+    color: var(--gold-primary);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.card-header p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Controls & Input */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    background: #0d1013;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    box-sizing: border-box;
+    font-family: 'Tajawal';
+    margin-top: 5px;
+}
+
+.input-field:focus {
+    border-color: var(--gold-primary);
+    outline: none;
+}
+
+/* Password Eye Icon Wrapper */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.password-wrapper .input-field {
+    margin-top: 0;
+    padding-left: 45px; /* مساحة لأيقونة العين */
+}
+
+.toggle-password-icon {
+    position: absolute;
+    left: 12px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: 0.2s;
+}
+
+.toggle-password-icon:hover {
+    color: var(--gold-primary);
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn-inside-input {
+    position: absolute;
+    left: 8px;
+    top: 9px;
+    background: var(--gold-primary);
+    border: none;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.id-link-badge {
+    margin-top: 10px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--emerald-light);
+    color: var(--emerald-light);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    animation: fadeIn 0.4s ease;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    font-family: 'Tajawal';
+}
+
+.btn-gold { background: var(--gold-primary); color: black; }
+.btn-gold:hover { background: var(--gold-hover); }
+
+.btn-emerald { background: var(--emerald-light); color: black; }
+.btn-outline { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+.btn-danger { background: var(--danger); color: white; }
+.btn-sm { padding: 6px 14px; font-size: 0.85rem; border-radius: 6px; }
+
+/* Deduction Box */
+.deduction-box {
+    background: #0f1216;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--gold-primary);
+    margin-top: 15px;
+    transition: 0.3s opacity;
+}
+
+.disabled-box {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.amount-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.amount-btn {
+    flex: 1;
+    padding: 8px;
+    background: #1a1f26;
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.amount-btn.active {
+    background: var(--gold-primary);
+    color: black;
+    font-weight: bold;
+}
+
+.stats-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Social Grid & Lock Approval */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-card {
+    background: #0d1013;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.social-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-icon { font-size: 1.5rem; color: var(--gold-primary); }
+.bind-status { margin: 0; font-size: 0.75rem; }
+.text-unlinked { color: var(--text-muted); }
+.text-linked { color: var(--emerald-light); font-weight: bold; }
+
+/* Lock Box */
+.lock-approval-box {
+    margin-top: 25px;
+    background: linear-gradient(135deg, #181d24 0%, #0d1013 100%);
+    border: 1px solid var(--gold-primary);
+    padding: 18px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    transition: 0.4s ease;
+}
+
+.lock-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lock-icon-wrap {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-primary);
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    border: 1px solid var(--gold-primary);
+    transition: 0.4s ease;
+}
+
+/* Debt Table */
+.debt-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.debt-table th, .debt-table td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Death Simulated Page & Partial Pay Card */
+.simulated-death-page {
+    display: none;
+    border: 2px solid var(--gold-primary);
+    background: #0a0d10;
+}
+
+.death-banner {
+    text-align: center;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.death-icon { font-size: 3rem; color: var(--gold-primary); margin-bottom: 10px; }
+.status-closed { background: rgba(16, 185, 129, 0.1); color: var(--emerald-light); padding: 12px; border-radius: 6px; }
+
+.debt-card-interactive {
+    background: #14181c;
+    border: 1px solid var(--border-color);
+    border-right: 5px solid var(--gold-primary);
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #222;
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-primary), var(--emerald-light));
+    transition: width 0.5s ease;
+}
+
+.pay-input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Modals */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #14181c;
+    border: 1px solid var(--gold-primary);
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.custom-alert-content {
+    text-align: center;
+}
+
+.alert-icon_wrap {
+    font-size: 3.2rem;
+    color: var(--gold-primary);
+    margin-bottom: 5px;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}</style>
+</head>
+<body>
+
+    <!-- شاشة التحميل (Splash Screen) -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <span class="splash-icon"><i class="fa-solid fa-kaaba"></i></span>
+            <h1>خِتَام</h1>
+            <p>طهارة أثرك.. وإبراء ذمتك</p>
+            <div class="splash-loader">
+                <div class="splash-loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الهيدر والتنقل -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-kaaba"></i></span>
+            <div class="logo-text">
+                <h1>خِتَام</h1>
+                <p>طهارة أثرك.. وإبراء ذمتك</p>
+            </div>
+        </div>
+        <div class="nav-status">
+            <span class="badge badge-success"><i class="fa-solid fa-shield-halved"></i> موثق مع توكلنا</span>
+            <span class="badge badge-gold" id="userLifeStatus">حالة الحساب: على قيد الحياة</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- البنر الرئيسي -->
+        <section class="hero-card">
+            <div class="hero-content">
+                <h2>﴿وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللَّهِ﴾</h2>
+                <p>منصة "خِتَام" المعتمدة ترتبط تلقائياً مع نظام "توكلنا". تضمن لك إغلاق حساباتك الرقمية فور الوفاة، واستقطاع الصدقات الجارية في حياتك، وإبراء ذمتك المالية بعد مماتك.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-gold" onclick="scrollToSection('deduction-section')"><i class="fa-solid fa-hand-holding-dollar"></i> ضبط الاستقطاع الشهري</button>
+                    <button class="btn btn-outline" onclick="scrollToSection('permissions-section')"><i class="fa-solid fa-file-contract"></i> ربط الحسابات وتوكلنا</button>
+                    <button class="btn btn-danger" onclick="toggleSimulatedDeath()"><i class="fa-solid fa-vial"></i> تجربة محاكاة الوفاة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. قسم الاستقطاع الشهري أثناء الحياة -->
+        <section class="card" id="deduction-section">
+            <div class="card-header">
+                <i class="fa-solid fa-coins icon"></i>
+                <div>
+                    <h3>الصدقة الجارية الاستقطاعية (أثناء الحياة)</h3>
+                    <p>استقطع مبلغاً من راتبِك أو حسابِك لتتصدق به تلقائياً كل شهر</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="toggle-control">
+                    <input type="checkbox" id="enableDeduction" onchange="toggleDeductionForm()">
+                    <span class="control-indicator"></span>
+                    <strong>أفوض منصة "خِتَام" باستقطاع مبلغ شهري للصدقة الجارية</strong>
+                </label>
+            </div>
+
+            <div id="deductionDetails" class="deduction-box disabled-box">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-wallet"></i> حدد مبلغ الاستقطاع الشهري (ر.س):</label>
+                        <div class="amount-options">
+                            <button type="button" class="amount-btn active" onclick="setAmount(30)">30</button>
+                            <button type="button" class="amount-btn" onclick="setAmount(50)">50</button>
+                            <button type="button" class="amount-btn" onclick="setAmount(100)">100</button>
+                            <button type="button" class="amount-btn" onclick="setAmount(200)">200</button>
+                        </div>
+                        <input type="number" id="customAmount" class="input-field" value="30" placeholder="أدخل أي مبلغ تريد" oninput="updateCustomAmount()">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-calendar-day"></i> يوم الخصم الشهري:</label>
+                        <select id="deductionDay" class="input-field">
+                            <option value="27">يوم 27 من كل شهر (مع الراتب)</option>
+                            <option value="1">يوم 1 من كل شهر</option>
+                            <option value="15">يوم 15 من كل شهر</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 15px;">
+                    <label><i class="fa-solid fa-heart-pulse"></i> وجهة الصدقة:</label>
+                    <select id="charityTarget" class="input-field">
+                        <option value="سقيا الماء وحفر الآبار">سقيا الماء وحفر الآبار</option>
+                        <option value="طباعة ونشر المصاحف">طباعة ونشر المصاحف</option>
+                        <option value="كفالة الأيتام والأسر المتعففة">كفالة الأيتام والأسر المتعففة</option>
+                        <option value="المساهمة في سداد ديون المعسرين">المساهمة في سداد ديون المعسرين</option>
+                    </select>
+                </div>
+
+                <div class="stats-summary">
+                    <div class="stat-item">
+                        <span>إجمالي التبرع المستقبلي سنوياً:</span>
+                        <strong id="annualTotal">360 ر.س</strong>
+                    </div>
+                    <button class="btn btn-emerald" onclick="saveDeductionSettings()"><i class="fa-solid fa-check"></i> حفظ إعدادات الاستقطاع</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. قسم التفويض والربط للحسابات وتوكلنا -->
+        <section class="card" id="permissions-section">
+            <div class="card-header">
+                <i class="fa-solid fa-id-card icon"></i>
+                <div>
+                    <h3>الربط بـ "توكلنا" وحسابات التواصل</h3>
+                    <p>أدخل رقم الهوية واضغط Enter لربط توكلنا، ثم اربطي حسابات التواصل واعتمادي القفل</p>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>رقم الهوية الوطنية / الإقامة (اضغط Enter للاعتماد والربط المباشر):</label>
+                <div class="input-with-icon">
+                    <input type="text" class="input-field" id="nationalId" placeholder="أدخل رقم الهوية هنا واضغط Enter..." onkeydown="handleIdEnter(event)">
+                    <button class="btn-inside-input" onclick="linkNationalId()"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+                <div id="idStatusBadge" class="id-link-badge" style="display:none;">
+                    <i class="fa-solid fa-circle-check"></i> تم الربط والتحقق التلقائي مع السجل المدني (منصة توكلنا)
+                </div>
+            </div>
+
+            <h4 style="margin-top: 25px;">ربط حسابات التواصل الاجتماعي للإغلاق الفوري بعد الوفاة:</h4>
+            
+            <div class="social-grid">
+                <!-- تيك توك -->
+                <div class="social-card">
+                    <div class="social-info">
+                        <i class="fa-brands fa-tiktok social-icon"></i>
+                        <div>
+                            <strong>تيك توك</strong>
+                            <p id="status-tiktok" class="bind-status text-unlinked">غير مرتبط</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-gold" onclick="openLinkModal('تيك توك (TikTok)')">ربط الحساب</button>
+                </div>
+
+                <!-- إنستغرام -->
+                <div class="social-card">
+                    <div class="social-info">
+                        <i class="fa-brands fa-instagram social-icon"></i>
+                        <div>
+                            <strong>إنستغرام</strong>
+                            <p id="status-instagram" class="bind-status text-unlinked">غير مرتبط</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-gold" onclick="openLinkModal('إنستغرام (Instagram)')">ربط الحساب</button>
+                </div>
+
+                <!-- إكس -->
+                <div class="social-card">
+                    <div class="social-info">
+                        <i class="fa-brands fa-x-twitter social-icon"></i>
+                        <div>
+                            <strong>منصة إكس</strong>
+                            <p id="status-twitter" class="bind-status text-unlinked">غير مرتبط</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-gold" onclick="openLinkModal('منصة إكس (Twitter)')">ربط الحساب</button>
+                </div>
+
+                <!-- سناب شات -->
+                <div class="social-card">
+                    <div class="social-info">
+                        <i class="fa-brands fa-snapchat social-icon"></i>
+                        <div>
+                            <strong>سناب شات</strong>
+                            <p id="status-snapchat" class="bind-status text-unlinked">غير مرتبط</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-gold" onclick="openLinkModal('سناب شات (Snapchat)')">ربط الحساب</button>
+                </div>
+            </div>
+
+            <!-- خيار الاعتماد مع شكل القفل وزر التبديل (اعتماد / إلغاء الاعتماد) -->
+            <div class="lock-approval-box" id="lockBoxContainer">
+                <div class="lock-info">
+                    <div class="lock-icon-wrap" id="lockIconWrap">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div>
+                        <strong id="lockBoxTitle">اعتماد التفويض الشامل ومزامنة الإغلاق التلقائي</strong>
+                        <p id="lockBoxDesc" style="margin:0; font-size:0.85rem; color:var(--text-muted);">بإمكانك تفعيل القفل لمنح النظام الصلاحية النهائية لإغلاق كافة الحسابات المربوطة فور وصول برقية توكلنا.</p>
+                    </div>
+                </div>
+                <button class="btn btn-gold" id="lockActionBtn" onclick="handleLockToggle()"><i class="fa-solid fa-shield-check"></i> اعتماد وتنسيق التفويض</button>
+            </div>
+        </section>
+
+        <!-- 3. قسم سجل الديون والحقوق -->
+        <section class="card" id="debts-section">
+            <div class="card-header">
+                <i class="fa-solid fa-scale-balanced icon"></i>
+                <div>
+                    <h3>سجل الديون والحقوق المالية</h3>
+                    <p>أدخل ديونك لتظهر لفاعلي الخير أو أقاربك لسدادها (جزئياً أو كلياً) لإبراء ذمتك</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>جهة الدين أو الشخص:</label>
+                    <input type="text" id="debtTitle" class="input-field" placeholder="مثال: دين بنكي / دين لأحمد">
+                </div>
+                <div class="form-group">
+                    <label>المبلغ الإجمالي للدين (ر.س):</label>
+                    <input type="number" id="debtAmount" class="input-field" placeholder="مثال: 1500">
+                </div>
+            </div>
+            <button class="btn btn-gold" onclick="addDebt()" style="margin-top: 15px;"><i class="fa-solid fa-plus"></i> إدراج الدين في السجل الرسمي</button>
+
+            <table class="debt-table" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>جهة الدين</th>
+                        <th>المبلغ الأصلي</th>
+                        <th>المتبقي للذمة</th>
+                        <th>إجراء</th>
+                    </tr>
+                </thead>
+                <tbody id="debtTableBody">
+                    <!-- تعبئة تلقائية -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 4. شاشة محاكاة صفحة الميت -->
+        <section class="card simulated-death-page" id="deathPage">
+            <div class="death-banner">
+                <i class="fa-solid fa-ribbon death-icon"></i>
+                <h2>إشعار وفاة رسمي - منصة خِتَام</h2>
+                <p>﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ • ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً﴾</p>
+                <small>تم تأكيد الوفاة رسمياً عبر الربط الإلكتروني المعتمد مع منصة (توكلنا)</small>
+            </div>
+
+            <div class="form-group">
+                <h3><i class="fa-solid fa-ban"></i> حالة الحسابات الرقمية:</h3>
+                <p id="deathAccountsStatusText" class="status-closed"><i class="fa-solid fa-circle-check"></i> تم إغلاق كافة حسابات التواصل المرتبطة تلقائياً لمنع أي ذنوب جاريه وليكون ختامه مسكاً.</p>
+            </div>
+
+            <hr style="border-color: #333; margin: 20px 0;">
+
+            <h3><i class="fa-solid fa-hand-holding-heart"></i> المساهمة والتبرع لسداد ديون المتوفى:</h3>
+            <p style="color:var(--text-muted);">يمكنك التبرع بأي مبلغ (جزئي أو كامل) للمساهمة في إبراء ذمة المتوفى:</p>
+
+            <div id="deathDebtsContainer" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                <!-- ستظهر كروت الديون التفاعلية مع خيار السداد الجزئي -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- نافذة ربط الحسابات مع أيقونة العين لكلمة المرور -->
+    <div id="linkModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle">ربط الحساب</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">أدخل بيانات حسابك لتفعيل التحقق والربط الآمن:</p>
+            
+            <div class="form-group" style="margin-top:15px;">
+                <label>اسم المستخدم أو البريد الإلكتروني:</label>
+                <input type="text" id="modalUsername" class="input-field" placeholder="username أو email">
+            </div>
+
+            <div class="form-group" style="margin-top:10px;">
+                <label>كلمة المرور:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="modalPassword" class="input-field" placeholder="••••••••" style="margin-top:0;">
+                    <span class="toggle-password-icon" onclick="togglePasswordVisibility('modalPassword', 'eyeIcon1')">
+                        <i id="eyeIcon1" class="fa-solid fa-eye-slash"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-gold" style="flex:1;" onclick="confirmAccountLink()">تأكيد وربط الحساب</button>
+                <button class="btn btn-outline" style="flex:1; border-color:var(--danger); color:var(--danger);" onclick="closeLinkModal()">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إلغاء الاعتماد عبر البريد الإلكتروني -->
+    <div id="emailVerifyModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3><i class="fa-solid fa-shield-halved" style="color:var(--danger);"></i> تأكيد إلغاء الاعتماد أمنياً</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-top:5px;">لإلغاء تفويض إغلاق الحسابات، يرجى إدخال بريدك الإلكتروني المسجل:</p>
+            
+            <div class="form-group" style="margin-top:15px;">
+                <label>البريد الإلكتروني المسجل:</label>
+                <input type="email" id="verificationEmailInput" class="input-field" placeholder="name@example.com">
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-danger" style="flex:1;" onclick="sendCancellationEmailCode()">إرسال وتأكيد الإلغاء</button>
+                <button class="btn btn-outline" style="flex:1;" onclick="closeEmailModal()">تراجع</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة المنبثقة الاحترافية للإشعارات -->
+    <div id="customAlertModal" class="modal-overlay">
+        <div class="modal-content custom-alert-content">
+            <div class="alert-icon-wrap" id="alertIcon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="alertTitle" style="margin-top:10px; color:var(--gold-primary);">عنوان الإشعار</h3>
+            <p id="alertMessage" style="color:var(--text-main); line-height:1.6; margin-top:10px; font-size:0.95rem;">محتوى الإشعار والرسالة...</p>
+            <button class="btn btn-gold" style="width:100%; margin-top:15px;" onclick="closeCustomAlert()">تم، حسناً</button>
+        </div>
+    </div>
+
+    <script>let currentAmount = 30;
+let activeTargetApp = "";
+let linkedAccounts = {};
+let isLockApproved = false;
+
+// قائمة الديون مع السداد الجزئي
+let debtsList = [
+    { id: 1, title: "دين قرض شخصي للأخ أحمد", originalAmount: 1500, remainingAmount: 1500 }
+];
+
+window.onload = function() {
+    renderDebts();
+    
+    // شاشة التحميل
+    setTimeout(() => {
+        const splash = document.getElementById('splashScreen');
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+    }, 1800);
+};
+
+// وظيفة إظهار وإخفاء كلمة المرور (زر العين)
+function togglePasswordVisibility(fieldId, iconId) {
+    const passwordInput = document.getElementById(fieldId);
+    const eyeIcon = document.getElementById(iconId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    }
+}
+
+// التمرير السلس
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// نظام التنبيهات
+function showCustomAlert(title, message, iconClass = "fa-circle-check") {
+    document.getElementById('alertTitle').innerText = title;
+    document.getElementById('alertMessage').innerText = message;
+    document.getElementById('alertIcon').innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+    document.getElementById('customAlertModal').style.display = 'flex';
+}
+
+function closeCustomAlert() {
+    document.getElementById('customAlertModal').style.display = 'none';
+}
+
+// تفعيل استقطاع الراتب
+function toggleDeductionForm() {
+    const isChecked = document.getElementById('enableDeduction').checked;
+    const box = document.getElementById('deductionDetails');
+    if (isChecked) box.classList.remove('disabled-box');
+    else box.classList.add('disabled-box');
+}
+
+function setAmount(amount) {
+    currentAmount = amount;
+    document.getElementById('customAmount').value = amount;
+    
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText == amount);
+    });
+
+    calculateAnnual();
+}
+
+function updateCustomAmount() {
+    const val = document.getElementById('customAmount').value;
+    currentAmount = val ? parseFloat(val) : 0;
+    calculateAnnual();
+}
+
+function calculateAnnual() {
+    document.getElementById('annualTotal').innerText = (currentAmount * 12) + ' ر.س';
+}
+
+function saveDeductionSettings() {
+    if(!document.getElementById('enableDeduction').checked) {
+        showCustomAlert('تنبيه', 'الرجاء تفعيل مفتاح التفويض أولاً.', 'fa-triangle-exclamation');
+        return;
+    }
+    showCustomAlert('تم الربط بنجاح', `تم حفظ تفويض الاستقطاع بمبلغ (${currentAmount} ر.س) شهرياً للصدقة الجارية.`);
+}
+
+// الربط مع توكلنا بواسطة رقم الهوية عند الضغط على Enter
+function handleIdEnter(e) {
+    if (e.key === 'Enter') {
+        linkNationalId();
+    }
+}
+
+function linkNationalId() {
+    const idVal = document.getElementById('nationalId').value;
+    if(!idVal || idVal.length < 8) {
+        showCustomAlert('خطأ في الإدخال', 'يرجى كتابة رقم هوية أو إقامة صحيح للربط.', 'fa-circle-xmark');
+        return;
+    }
+
+    document.getElementById('idStatusBadge').style.display = 'block';
+    showCustomAlert('تم التوثيق مع توكلنا', `تم التحقق من رقم الهوية (${idVal}) وربطها بسجل الأحوال المدنية وسدايا بنجاح!`);
+}
+
+// ربط الحسابات الرقمية
+function openLinkModal(appName) {
+    activeTargetApp = appName;
+    document.getElementById('modalTitle').innerText = 'ربط حساب ' + appName;
+    document.getElementById('modalUsername').value = '';
+    document.getElementById('modalPassword').value = '';
+    
+    // إعادة تعيين العين إلى وضع الإخفاء عند فتح النافذة
+    document.getElementById('modalPassword').type = "password";
+    document.getElementById('eyeIcon1').className = "fa-solid fa-eye-slash";
+
+    document.getElementById('linkModal').style.display = 'flex';
+}
+
+function closeLinkModal() {
+    document.getElementById('linkModal').style.display = 'none';
+}
+
+function confirmAccountLink() {
+    const username = document.getElementById('modalUsername').value;
+    const pass = document.getElementById('modalPassword').value;
+
+    if(!username || !pass) {
+        showCustomAlert('تنبيه', 'الرجاء إدخال اسم المستخدم وكلمة المرور للربط.', 'fa-triangle-exclamation');
+        return;
+    }
+
+    linkedAccounts[activeTargetApp] = username;
+
+    let statusId = "";
+    if(activeTargetApp.includes("تيك توك")) statusId = "status-tiktok";
+    else if(activeTargetApp.includes("إنستغرام")) statusId = "status-instagram";
+    else if(activeTargetApp.includes("إكس")) statusId = "status-twitter";
+    else if(activeTargetApp.includes("سناب")) statusId = "status-snapchat";
+
+    if(statusId) {
+        const el = document.getElementById(statusId);
+        el.innerText = "مرتبط بنجاح (@" + username + ")";
+        el.className = "bind-status text-linked";
+    }
+
+    closeLinkModal();
+    showCustomAlert('تم ربط الحساب 🎉', `تم الربط والتشفير لحساب (${activeTargetApp}) باسم المستخدم @${username}. سيتم إغلاقه تلقائياً عند الوفاة.`);
+}
+
+// التحكم بقفل الاعتماد وإلغائه أمنياً
+function handleLockToggle() {
+    if (!isLockApproved) {
+        isLockApproved = true;
+        updateLockUI();
+        showCustomAlert('تم تفعيل القفل بنجاح 🔒', 'تم تأكيد التفويض الشامل ومزامنة الإغلاق التلقائي لكافة الحسابات المربوطة فور صدور شهادة الوفاة.');
+    } else {
+        document.getElementById('verificationEmailInput').value = '';
+        document.getElementById('emailVerifyModal').style.display = 'flex';
+    }
+}
+
+function closeEmailModal() {
+    document.getElementById('emailVerifyModal').style.display = 'none';
+}
+
+function sendCancellationEmailCode() {
+    const emailVal = document.getElementById('verificationEmailInput').value;
+    if(!emailVal || !emailVal.includes('@')) {
+        showCustomAlert('خطأ في البريد', 'الرجاء إدخال بريد إلكتروني صحيح ومسجل.', 'fa-circle-xmark');
+        return;
+    }
+
+    closeEmailModal();
+    
+    const confirmed = confirm(`تم إرسال رسالة تحقق أمنية إلى بريدك (${emailVal}):\n\n"هل أنت متأكد تماماً من رغبتك في إلغاء تفويض إغلاق الحسابات الرقمية لمنصة خِتَام؟"\n\nاضغط (موافق) للتأكيد النهائي أو (إلغاء) للتراجع.`);
+    
+    if (confirmed) {
+        isLockApproved = false;
+        updateLockUI();
+        showCustomAlert('تم إلغاء التفويض بنجاح', `تم إرسال إشعار رسمي بريدياً إلى (${emailVal}) يفيد بإلغاء اعتماد إغلاق الحسابات المعلقة.`);
+    } else {
+        showCustomAlert('عملية ملغاة', 'تم الاحتفاظ بتفويض وقفل الحسابات آمناً.');
+    }
+}
+
+function updateLockUI() {
+    const box = document.getElementById('lockBoxContainer');
+    const iconWrap = document.getElementById('lockIconWrap');
+    const title = document.getElementById('lockBoxTitle');
+    const desc = document.getElementById('lockBoxDesc');
+    const btn = document.getElementById('lockActionBtn');
+
+    if (isLockApproved) {
+        box.style.borderColor = 'var(--emerald-light)';
+        iconWrap.style.background = 'rgba(16, 185, 129, 0.2)';
+        iconWrap.style.color = 'var(--emerald-light)';
+        iconWrap.style.borderColor = 'var(--emerald-light)';
+        iconWrap.innerHTML = `<i class="fa-solid fa-shield-check"></i>`;
+        title.innerText = "التفويض معتمد ومقفل أماناً (مفعل)";
+        desc.innerText = "الحسابات المربوطة محمية وسيتم إغلاقها فور ورود برقية الوفاة الرسمية عبر توكلنا.";
+        btn.className = "btn btn-danger";
+        btn.innerHTML = `<i class="fa-solid fa-lock-open"></i> إلغاء الاعتماد`;
+    } else {
+        box.style.borderColor = 'var(--gold-primary)';
+        iconWrap.style.background = 'rgba(212, 175, 55, 0.15)';
+        iconWrap.style.color = 'var(--gold-primary)';
+        iconWrap.style.borderColor = 'var(--gold-primary)';
+        iconWrap.innerHTML = `<i class="fa-solid fa-lock"></i>`;
+        title.innerText = "اعتماد التفويض الشامل ومزامنة الإغلاق التلقائي";
+        desc.innerText = "بإمكانك تفعيل القفل لمنح النظام الصلاحية النهائية لإغلاق كافة الحسابات المربوطة فور وصول برقية توكلنا.";
+        btn.className = "btn btn-gold";
+        btn.innerHTML = `<i class="fa-solid fa-shield-check"></i> اعتماد وتنسيق التفويض`;
+    }
+}
+
+// إضافة وإدارة الديون
+function addDebt() {
+    const title = document.getElementById('debtTitle').value;
+    const amountVal = document.getElementById('debtAmount').value;
+
+    if(!title || !amountVal || amountVal <= 0) {
+        showCustomAlert('تنبيه', 'يرجى كتابة اسم الدين والمبلغ المطلوب بشكل صحيح.', 'fa-triangle-exclamation');
+        return;
+    }
+
+    const newDebt = {
+        id: Date.now(),
+        title: title,
+        originalAmount: parseFloat(amountVal),
+        remainingAmount: parseFloat(amountVal)
+    };
+
+    debtsList.push(newDebt);
+    renderDebts();
+
+    document.getElementById('debtTitle').value = '';
+    document.getElementById('debtAmount').value = '';
+    showCustomAlert('إدراج موفق', 'تمت إضافة الدين إلى قائمة الذمة المالية بنجاح.');
+}
+
+function deleteDebt(id) {
+    debtsList = debtsList.filter(d => d.id !== id);
+    renderDebts();
+}
+
+function renderDebts() {
+    const tbody = document.getElementById('debtTableBody');
+    const deathContainer = document.getElementById('deathDebtsContainer');
+    
+    tbody.innerHTML = '';
+    deathContainer.innerHTML = '';
+
+    if(debtsList.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted);">لا توجد ديون مسجلة حالياً</td></tr>`;
+        deathContainer.innerHTML = `<p style="color:var(--text-muted); text-align:center;">لا توجد ديون معلقة في ذمة المتوفى.</p>`;
+        return;
+    }
+
+    debtsList.forEach(debt => {
+        const isPaidFully = debt.remainingAmount <= 0;
+        const paidPercent = Math.min(100, Math.round(((debt.originalAmount - debt.remainingAmount) / debt.originalAmount) * 100));
+
+        tbody.innerHTML += `
+            <tr>
+                <td>${debt.title}</td>
+                <td>${debt.originalAmount} ر.س</td>
+                <td>
+                    <span style="color:${isPaidFully ? 'var(--emerald-light)' : 'var(--gold-primary)'}; font-weight:bold;">
+                        ${isPaidFully ? '0 ر.س (تم السداد بالكامل 🎉)' : debt.remainingAmount + ' ر.س'}
+                    </span>
+                </td>
+                <td><button class="btn-sm btn-danger" onclick="deleteDebt(${debt.id})">حذف</button></td>
+            </tr>
+        `;
+
+        deathContainer.innerHTML += `
+            <div class="debt-card-interactive">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong>${debt.title}</strong>
+                    <span class="badge ${isPaidFully ? 'badge-success' : 'badge-gold'}">
+                        ${isPaidFully ? 'خالي الذمة (سُدد)' : 'المتبقي: ' + debt.remainingAmount + ' ر.س'}
+                    </span>
+                </div>
+                
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: ${paidPercent}%;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text-muted);">
+                    <span>المبلغ الأصلي: ${debt.originalAmount} ر.س</span>
+                    <span>نسبة المسدد: ${paidPercent}%</span>
+                </div>
+
+                ${!isPaidFully ? `
+                    <div class="pay-input-group">
+                        <input type="number" id="payInput-${debt.id}" class="input-field" placeholder="أدخل مبلغ التبرع (مثلاً 100)" style="margin:0;">
+                        <button class="btn btn-emerald btn-sm" onclick="donatePartialDebt(${debt.id})"><i class="fa-solid fa-hand-holding-dollar"></i> تبرع بالسداد</button>
+                    </div>
+                ` : `<p style="color:var(--emerald-light); font-size:0.85rem; margin-top:8px; font-weight:bold;"><i class="fa-solid fa-circle-check"></i> جزاكم الله خيراً، تم سداد هذا الدين بالكامل عن المتوفى.</p>`}
+            </div>
+        `;
+    });
+}
+
+function donatePartialDebt(id) {
+    const inputEl = document.getElementById(`payInput-${id}`);
+    const payVal = parseFloat(inputEl.value);
+
+    const debt = debtsList.find(d => d.id === id);
+    if(!debt || !payVal || payVal <= 0) {
+        showCustomAlert('تنبيه', 'الرجاء إدخال مبلغ تبرع صحيح.', 'fa-triangle-exclamation');
+        return;
+    }
+
+    if(payVal > debt.remainingAmount) {
+        showCustomAlert('مبلغ أعلى من المطلوب', `المبلغ المتبقي على الدين هو ${debt.remainingAmount} ر.س فقط. يمكنك دفع هذا المبلغ لسداده بالكامل.`);
+        return;
+    }
+
+    debt.remainingAmount -= payVal;
+    renderDebts();
+
+    if(debt.remainingAmount <= 0) {
+        showCustomAlert('تم السداد بالكامل 🎉', `ماشاء الله! تبرعك بمبلغ (${payVal} ر.س) أتمّ سداد الدين بالكامل عن المتوفى. كتب الله أجرك!`);
+    } else {
+        showCustomAlert('جزاك الله خيراً ❤️', `تم قبول تبرعك بمبلغ (${payVal} ر.س). المبلغ المتبقي على الدين الآن هو (${debt.remainingAmount} ر.س).`);
+    }
+}
+
+// محاكاة الوفاة
+function toggleSimulatedDeath() {
+    const deathPage = document.getElementById('deathPage');
+    const lifeStatus = document.getElementById('userLifeStatus');
+    const deathAccountsText = document.getElementById('deathAccountsStatusText');
+
+    if(deathPage.style.display === 'block') {
+        deathPage.style.display = 'none';
+        lifeStatus.innerText = 'حالة الحساب: على قيد الحياة';
+        lifeStatus.className = 'badge badge-gold';
+    } else {
+        deathPage.style.display = 'block';
+        lifeStatus.innerText = 'حالة الحساب: متوفى (تأكيد توكلنا)';
+        lifeStatus.className = 'badge badge-success';
+        
+        if (isLockApproved) {
+            deathAccountsText.innerHTML = `<i class="fa-solid fa-circle-check"></i> تم إغلاق كافة حسابات التواصل المرتبطة تلقائياً بنجاح لأن (تفويض قفل الأمان) كان معتمداً.`;
+            deathAccountsText.style.background = "rgba(16, 185, 129, 0.1)";
+            deathAccountsText.style.color = "var(--emerald-light)";
+        } else {
+            deathAccountsText.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> تنبيه: لم يتم اعتماد قفل التفويض في الحساب، لذلك ظلت الحسابات نشطة ولم يتم إغلاقها تلقائياً.`;
+            deathAccountsText.style.background = "rgba(239, 68, 68, 0.1)";
+            deathAccountsText.style.color = "var(--danger)";
+        }
+
+        deathPage.scrollIntoView({ behavior: 'smooth' });
+    }
+}</script>
+</body>
+</html>
